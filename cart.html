@@ -1,0 +1,102 @@
+<!-- HTML for the cart page -->
+<div id="cart-container">
+  <h1>Your Cart</h1>
+
+  <!-- display the cart items using a loop in JavaScript -->
+  <div id="cart-items">
+  </div>
+
+  <!-- display the total cost of the items in the cart -->
+  <div id="cart-total">
+    Total: $0
+  </div>
+</div>
+
+<style>
+  /* CSS for styling the cart page */
+  #cart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #cart-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .cart-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .cart-item h2 {
+    font-size: 18px;
+    margin: 0 10px;
+  }
+
+  .cart-item p {
+    font-size: 14px;
+    color: #666;
+    margin: 0 10px;
+  }
+
+  #cart-total {
+    margin: 20px 0;
+    font-size: 20px;
+  }
+</style>
+
+<script>
+  // JavaScript for loading the cart data and displaying it on the page
+  const cartData = [
+    {
+      name: "Lip Balm",
+      image: "https://via.placeholder.com/50x50.png",
+      price: 5.99
+    },
+    {
+      name: "Eyeliner",
+      image: "https://via.placeholder.com/50x50.png",
+      price: 9.99
+    },
+    {
+      name: "Foundation",
+      image: "https://via.placeholder.com/50x50.png",
+      price: 19.99
+    }
+  ];
+
+  // get the cart items container element and the cart total element
+  const cartItemsContainer = document.getElementById("cart-items");
+  const cartTotalEl = document.getElementById("cart-total");
+
+  // initialize the total cost to 0
+  let totalCost = 0;
+
+  // loop through the cart data and create a cart item element for each item
+  cartData.forEach(item => {
+    const cartItemEl = document.createElement("div");
+    cartItemEl.classList.add("cart-item");
+
+    // add the item name
+    const nameEl = document.createElement("h2");
+    nameEl.textContent = item.name;
+    cartItemEl.appendChild(nameEl);
+
+    // add the item image
+    const imageEl = document.createElement("img");

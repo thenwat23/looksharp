@@ -1,0 +1,100 @@
+
+<!-- HTML for the product page -->
+<div id="product-container">
+  <h1>Cosmetic Shop</h1>
+
+  <!-- display the product images and prices using a loop in JavaScript -->
+  <div id="products">
+  </div>
+</div>
+
+<style>
+  /* CSS for styling the product page */
+  #product-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+
+  .product img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+
+  .product h2 {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+
+  .product p {
+    font-size: 14px;
+    color: #666;
+  }
+</style>
+
+<script>
+  // JavaScript for loading the product data and displaying it on the page
+  const productData = [
+    {
+      name: "Lip Balm",
+      image: "/storage/emulated/0/Pictures/1671278937910.jpg",
+      price: "$5.99"
+    },
+    {
+      name: "palmer's",
+      image: "/storage/emulated/0/Pictures/1672159268408.jpg",
+      price: "$9.99"
+    },
+    {
+      name: "Skin doctor",
+      image: "/storage/emulated/0/Pictures/1671271355549.jpg",
+      price: "$19.99"
+    },
+    {
+      name: "Carotone lotion",
+      image: "/storage/emulated/0/Pictures/1671282920545.jpg",
+price: "$5.00"
+     },
+     {
+      name: "Eyeliner cream",
+      image: "/storage/emulated/0/Download/HTB1iYiwpTCWBKNjSZFtq6yC3FXac.jpg",
+      price: "$10.00"
+     },
+  ];
+
+  // get the products container element
+  const productsContainer = document.getElementById("products");
+
+  // loop through the product data and create a product element for each item
+  productData.forEach(product => {
+    const productEl = document.createElement("div");
+    productEl.classList.add("product");
+
+    // add the product name
+    const nameEl = document.createElement("h2");
+    nameEl.textContent = product.name;
+    productEl.appendChild(nameEl);
+
+    // add the product image
+    const imageEl = document.createElement("img");
+    imageEl.src = product.image;
+    productEl.appendChild(imageEl);
+
+    // add the product price
+    const priceEl = document.createElement("p");
+    priceEl.textContent = product.price;
+    productEl.appendChild(priceEl);
+
+    // add the product element to the products container
+    productsContainer.appendChild(productEl);
+  });
+</script>
